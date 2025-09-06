@@ -4,7 +4,7 @@
 
 # NOTE: 'PLATFORM' and 'HWSKU' environment variables are set
 # in the Dockerfile so that they persist for the life of the container
-
+exec /usr/bin/eguard-cli
 ln -sf /usr/share/sonic/device/$PLATFORM /usr/share/sonic/platform
 ln -sf /usr/share/sonic/device/$PLATFORM/$HWSKU /usr/share/sonic/hwsku
 

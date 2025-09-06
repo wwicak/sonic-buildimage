@@ -36,7 +36,7 @@ $(DOCKER_MGMT_FRAMEWORK)_RUN_OPT += -v /etc:/host_etc:ro
 $(DOCKER_MGMT_FRAMEWORK)_RUN_OPT += -v /var/run/dbus:/var/run/dbus:rw
 $(DOCKER_MGMT_FRAMEWORK)_RUN_OPT += --mount type=bind,source="/var/platform/",target="/mnt/platform/"
 
-$(DOCKER_MGMT_FRAMEWORK)_BASE_IMAGE_FILES += sonic-cli:/usr/bin/sonic-cli
+$(DOCKER_MGMT_FRAMEWORK)_BASE_IMAGE_FILES += sonic-cli:/usr/bin/eguard-cli
 
 SONIC_BOOKWORM_DOCKERS += $(DOCKER_MGMT_FRAMEWORK)
 SONIC_BOOKWORM_DBG_DOCKERS += $(DOCKER_MGMT_FRAMEWORK_DBG)

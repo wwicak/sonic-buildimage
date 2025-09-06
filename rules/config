@@ -50,11 +50,11 @@ DEFAULT_PASSWORD = YourPaSsWoRd
 # INCLUDE_PDE = y
 # SHUTDOWN_BGP_ON_START - if set to y all bgp sessions will be in admin down state when
 # bgp service starts.
-# SHUTDOWN_BGP_ON_START = y
+SHUTDOWN_BGP_ON_START = y
 
 # ENABLE_PFCWD_ON_START - if set to y PFC Watchdog (PFCWD) will be enabled all server-facing ports
 # by default for TOR switch
-# ENABLE_PFCWD_ON_START = y
+ENABLE_PFCWD_ON_START = n
 
 # INSTALL_DEBUG_TOOLS - installs debugging tools in baseline docker
 # Uncomment next line to enable:
@@ -117,10 +117,12 @@ DEFAULT_VS_PREPARE_MEM = yes
 INCLUDE_SYSTEM_GNMI = y
 
 # INCLUDE_SYSTEM_BMP - build docker-sonic-bmp for system bmp support
-INCLUDE_SYSTEM_BMP = y
+INCLUDE_SYSTEM_BMP = n
 
 # INCLUDE_SYSTEM_EVENTD - build docker-eventd for system eventd support
-INCLUDE_SYSTEM_EVENTD = y
+INCLUDE_SYSTEM_EVENTD = n
+
+INCLUDE_STP= y
 
 # INCLUDE_SYSTEM_TELEMETRY - build docker-sonic-telemetry for system telemetry support
 INCLUDE_SYSTEM_TELEMETRY = n
@@ -142,10 +144,10 @@ ENABLE_HOST_SERVICE_ON_START = y
 INCLUDE_RESTAPI ?= n
 
 # INCLUDE_NAT - build docker-nat for nat support
-INCLUDE_NAT = y
+INCLUDE_NAT = n
 
 # INCLUDE_DHCP_RELAY - build and install dhcp-relay package
-INCLUDE_DHCP_RELAY = y
+INCLUDE_DHCP_RELAY = n
 
 # INCLUDE_DHCP_SERVER - build and install dhcp-server package
 INCLUDE_DHCP_SERVER ?= n
@@ -181,10 +183,10 @@ INCLUDE_GBSYNCD ?= y
 INCLUDE_TEAMD ?= y
 
 # INCLUDE_ROUTER_ADVERTISER - build docker-router-advertiser for router advertisements support
-INCLUDE_ROUTER_ADVERTISER ?= y
+INCLUDE_ROUTER_ADVERTISER ?= n
 
 # INCLUDE_TEAMD - build docker-ha for DASH HA support
-INCLUDE_DASH_HA ?= y
+INCLUDE_DASH_HA ?= n
 # INCLUDE_KUBERNETES - if set to y kubernetes packages are installed to be able to
 # run as worker node in kubernetes cluster.
 INCLUDE_KUBERNETES ?= n
@@ -303,7 +305,7 @@ ENABLE_ASAN ?= n
 DEFAULT_CONTAINER_REGISTRY ?= publicmirror.azurecr.io
 
 # INCLUDE_BOOTCHART - install systemd-bootchart
-INCLUDE_BOOTCHART = y
+INCLUDE_BOOTCHART = n
 
 # ENABLE_BOOTCHART - whether to enable systemd-bootchart on boot
 ENABLE_BOOTCHART = n
@@ -311,7 +313,7 @@ ENABLE_BOOTCHART = n
 # INCLUDE_FIPS - support FIPS feature, only for amd64 or arm64, armhf not supported yet
 # ENABLE_FIPS - support FIPS flag, if enabled, no additional config requred for the image to support FIPS
 INCLUDE_FIPS ?= y
-ENABLE_FIPS ?= n
+ENABLE_FIPS ?= y
 
 # SONIC_SLAVE_DOCKER_DRIVER - set the sonic slave docker storage driver
 SONIC_SLAVE_DOCKER_DRIVER ?= overlay2

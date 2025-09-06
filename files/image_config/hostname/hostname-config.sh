@@ -4,8 +4,8 @@ CURRENT_HOSTNAME=$(hostname)
 HOSTNAME=$(sonic-db-cli CONFIG_DB HGET 'DEVICE_METADATA|localhost' hostname)
 
 if [ -z "$HOSTNAME" ] ; then
-       echo "Missing hostname in the config file, setting to default 'sonic'"
-       HOSTNAME='sonic'
+       echo "Missing hostname in the config file, setting to default 'eguard'"
+       HOSTNAME='eguard'
 fi
 
 echo $HOSTNAME > /etc/hostname

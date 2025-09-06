@@ -16,9 +16,9 @@ def main():
 
     args = parser.parse_args()
 
-    login_prompt = 'sonic login:'
+    login_prompt = 'eguard login:'
     passwd_prompt = 'Password:'
-    cmd_prompt = "{}@sonic:~\$ $".format(args.u)
+    cmd_prompt = "{}@eguard:~\$ $".format(args.u)
     grub_selection = "The highlighted entry will be executed"
     firsttime_prompt = 'firsttime_exit'
     passwd_change_prompt = ['Current password:', 'New password:', 'Retype new password:']
