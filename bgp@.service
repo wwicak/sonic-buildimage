@@ -1,0 +1,24 @@
+[Unit]
+Description=BGP container
+Requires=database@%i.service
+After=database@%i.service
+Requires=config-setup.service
+After=config-setup.service
+BindsTo=sonic.target
+After=sonic.target
+After=swss@%i.service
+After=interfaces-config.service
+StartLimitIntervalSec=1200
+StartLimitBurst=3
+
+[Service]
+User=admin
+ExecStartPre=/usr/local/bin/bgp.sh start %i
+ExecStart=/usr/local/bin/bgp.sh wait %i
+ExecStop=/usr/local/bin/bgp.sh stop %i
+ExecStopPost=/usr/local/bin/write_standby.py --shutdown bgp
+
+RestartSec=30
+
+[Install]
+WantedBy=sonic.target

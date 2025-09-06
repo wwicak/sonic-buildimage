@@ -119,3 +119,30 @@ sources.list.*
 
 # Generated mirror configs
 apt-retries-count
+fsroot-vs/*
+src/protobuf-*
+src/sonic-sysmgr*
+src/p4lang*
+src/sonic-bmpcfgd*
+src/protobuf_3.21.12-3.dsc
+src/sonic-dbsyncd
+src/sonic-py-swsssdk
+src/sonic-snmpagent
+src/sonic-swss-common
+src/openssh/openssh_9.2p1-2+deb12u5.dsc
+src/openssh/openssh_9.2p1.orig.tar.gz.asc
+src/sonic-eventd/rsyslog_plugin/main.d
+src/sonic-eventd/rsyslog_plugin/rsyslog_plugin.d
+src/sonic-eventd/rsyslog_plugin/syslog_parser.d
+src/sonic-eventd/rsyslog_plugin/timestamp_formatter.d
+src/sonic-eventd/rsyslog_plugin_tests/rsyslog_plugin_ut.d
+src/sonic-eventd/src/eventd.d
+src/sonic-eventd/src/main.d
+src/sonic-eventd/tests/eventd_ut.d
+src/sonic-eventd/tests/main.d
+src/sonic-eventd/tools/events_tool.d
+src/sonic-dbsyncd
+src/sonic-py-swsssdk
+src/sonic-snmpagent
+src/sonic-swss-common
+installer/platforms/*

@@ -1,0 +1,22 @@
+[Unit]
+Description=Sysmgr Container
+Requires=database.service
+After=database.service swss.service
+BindsTo=sonic.target
+After=sonic.target
+Before=ntp-config.service
+StartLimitIntervalSec=1200
+StartLimitBurst=3
+
+
+[Service]
+User=admin
+ExecStartPre=/usr/bin/sysmgr.sh start
+ExecStart=/usr/bin/sysmgr.sh wait
+ExecStop=/usr/bin/sysmgr.sh stop
+Restart=always
+RestartSec=30
+
+
+[Install]
+WantedBy=sonic.target

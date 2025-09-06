@@ -1,0 +1,23 @@
+[Unit]
+Description=TEAMD container
+After=swss@%i.service
+
+Requires=topology.service
+After=topology.service
+
+Requires=config-setup.service
+After=config-setup.service
+BindsTo=sonic.target
+After=sonic.target
+StartLimitIntervalSec=1200
+StartLimitBurst=3
+
+[Service]
+User=admin
+ExecStartPre=/usr/local/bin/teamd.sh start %i
+ExecStart=/usr/local/bin/teamd.sh wait %i
+ExecStop=/usr/local/bin/teamd.sh stop %i
+RestartSec=30
+
+[Install]
+WantedBy=sonic.target

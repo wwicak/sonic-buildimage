@@ -1,0 +1,23 @@
+[Unit]
+Description=Database container
+
+Requires=database.service
+After=database.service
+
+Wants=database-chassis.service
+After=database-chassis.service
+Requires=docker.service
+After=docker.service
+After=rc-local.service
+StartLimitIntervalSec=1200
+StartLimitBurst=3
+
+[Service]
+User=root
+ExecStartPre=/usr/local/bin/database.sh start %i
+ExecStart=/usr/local/bin/database.sh wait %i
+ExecStop=/usr/local/bin/database.sh stop %i
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target

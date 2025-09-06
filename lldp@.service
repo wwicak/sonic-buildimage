@@ -1,0 +1,21 @@
+[Unit]
+Description=LLDP container
+Requires=database@%i.service
+After=database@%i.service
+After=swss@%i.service
+After=syncd@%i.service
+Requires=config-setup.service
+After=config-setup.service
+BindsTo=sonic.target
+After=sonic.target
+BindsTo=sonic.target
+After=sonic.target
+StartLimitIntervalSec=1200
+StartLimitBurst=3
+
+[Service]
+User=admin
+ExecStartPre=/usr/local/bin/lldp.sh start %i
+ExecStart=/usr/local/bin/lldp.sh wait %i
+ExecStop=/usr/local/bin/lldp.sh stop %i
+RestartSec=30

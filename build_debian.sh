@@ -39,7 +39,7 @@ LINUX_KERNEL_VERSION=6.1.0-29-2
 FILESYSTEM_ROOT=./fsroot
 PLATFORM_DIR=platform
 ## Hostname for the linux image
-HOSTNAME=sonic
+HOSTNAME=eguard
 DEFAULT_USERINFO="Default admin user,,,"
 BUILD_TOOL_PATH=src/sonic-build-hooks/buildinfo
 TRUSTED_GPG_DIR=$BUILD_TOOL_PATH/trusted.gpg.d
@@ -159,7 +159,7 @@ sudo LANG=C chroot $FILESYSTEM_ROOT apt-get -y install pigz
 ## However, 'dpkg -i' plus 'apt-get install -f' will ignore the recommended dependency. So
 ## we install busybox explicitly
 sudo LANG=C chroot $FILESYSTEM_ROOT apt-get -y install busybox linux-base
-echo '[INFO] Install SONiC linux kernel image'
+echo '[INFO] Install Eguard linux kernel image'
 ## Note: duplicate apt-get command to ensure every line return zero
 sudo cp $debs_path/initramfs-tools-core_*.deb $debs_path/initramfs-tools_*.deb $debs_path/linux-image-${LINUX_KERNEL_VERSION}-*_${CONFIGURED_ARCH}.deb $FILESYSTEM_ROOT
 basename_deb_packages=$(basename -a $debs_path/initramfs-tools-core_*.deb $debs_path/initramfs-tools_*.deb $debs_path/linux-image-${LINUX_KERNEL_VERSION}-*_${CONFIGURED_ARCH}.deb | sed 's,^,./,')
